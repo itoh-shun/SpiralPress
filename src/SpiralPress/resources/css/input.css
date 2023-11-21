@@ -1,0 +1,470 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+.markdown  {
+  @apply py-4
+}
+
+.markdown h1 {
+  @apply text-4xl font-black mb-4 text-slate-700 border-b-4 border-slate-300 pb-2 !important;
+}
+
+.markdown h2 {
+  @apply text-3xl font-bold mb-3 text-slate-600 !important;
+}
+
+.markdown h3 {
+  @apply text-2xl font-semibold mb-2 text-slate-500 !important;
+}
+
+.markdown h4 {
+  @apply text-xl font-semibold mb-2 text-slate-400 !important;
+}
+
+.markdown h5 {
+  @apply text-lg font-semibold mb-2 text-slate-300 !important;
+}
+
+.markdown h6 {
+  @apply text-base font-semibold mb-2 text-slate-200 !important;
+}
+
+.markdown p {
+  @apply text-base my-2 text-gray-700 leading-relaxed !important;
+}
+
+.markdown a {
+  @apply text-slate-600 underline hover:text-slate-800 !important;
+}
+
+.markdown img {
+  @apply max-w-full h-auto rounded-lg shadow-lg !important;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-slate-200 pl-4 my-4 italic text-gray-600 bg-slate-50 rounded-md p-3 !important;
+}
+
+.markdown pre {
+  @apply text-sm bg-gray-900 rounded p-4 text-white overflow-auto;
+  line-height: 1.5 !important;
+}
+
+.markdown code {
+  @apply text-sm bg-gray-200 text-gray-800 rounded p-1;
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+.markdown ul ul,
+.markdown ol ol,
+.markdown ul ol,
+.markdown ol ul {
+  @apply pl-5 !important;
+}
+
+.markdown table {
+  @apply w-full text-left border-collapse shadow-lg overflow-hidden rounded-lg !important;
+}
+
+.markdown thead {
+  @apply bg-slate-100 !important;
+}
+
+.markdown tr:nth-child(even) {
+  @apply bg-gray-50 !important;
+}
+
+.markdown th,
+.markdown td {
+  @apply py-3 px-5 !important;
+}
+
+.markdown dl {
+  @apply my-4 bg-gray-50 p-4 rounded-md shadow-md !important;
+}
+
+.markdown dt {
+  @apply text-lg font-semibold my-1 text-slate-700 !important;
+}
+
+.markdown dd {
+  @apply ml-4 text-gray-700 !important;
+}
+.markdown ul {
+  @apply list-disc list-inside my-4 text-gray-700 pl-5 !important;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside my-4 text-gray-700 pl-5 !important;
+}
+
+
+.markdown ul ul,
+.markdown ol ol,
+.markdown ul ol,
+.markdown ol ul {
+  @apply pl-6 !important;
+}
+
+.markdown li {
+  @apply my-1 !important;
+}
+
+.smp-pager {
+  @apply my-4
+}
+
+.pagination , .smp-pager tr{
+  @apply flex items-center -space-x-px h-8 text-sm justify-center
+}
+
+.page-item.current .page-link , .smp-page.smp-current-page{
+  @apply z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700
+}
+
+.page-item .page-link, .smp-page a{
+  @apply flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700
+}
+
+.page-item .page-text, .smp-page.smp-page-space{
+  @apply flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 
+}
+
+#SMP_STYLE .body_tbl {
+	@apply container mx-auto p-4; 
+}
+
+#SMP_STYLE h1 {
+  @apply mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900
+}
+
+#SMP_STYLE .header_img_smartphone {display: none;}
+#SMP_STYLE .header_img_tablet {display: none;}
+#SMP_STYLE .header_img_pc {display: block;}
+
+#SMP_STYLE .header_text {
+  @apply m-0 py-2 px-4 my-2 bg-slate-100 text-slate-900
+}
+
+#SMP_STYLE .header_rmesg {
+  @apply m-0 py-2 px-4 my-2 text-slate-900
+}
+
+#SMP_STYLE .header_emesg {
+  @apply border-solid border-red-600 bg-white text-red-600 mx-auto border-2 px-4 py-2 mt-2
+}
+
+#SMP_STYLE .smp_tmpl {
+  @apply mt-6
+}
+
+#SMP_STYLE dl {
+  @apply my-2 border-b border-slate-200  py-4;
+}
+
+#SMP_STYLE dt.title {
+  @apply inline-block md:w-1/3 w-full m-0 bg-white align-top font-bold
+}
+
+#SMP_STYLE dt.title .caution {
+  @apply block text-slate-600 pt-2
+}
+
+#SMP_STYLE dd.data {
+  @apply inline-block md:w-2/3 w-full m-0 bg-white align-top
+}
+
+#SMP_STYLE input.input:not(input[type="radio"]):not(input[type="checkbox"]){
+  @apply border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+}
+
+.smp-search-form td.smp-sf-body > div {
+  @apply flex whitespace-nowrap items-center gap-2 w-full
+}
+
+.smp-search-form td.smp-sf-body input:not(input[type="radio"]):not(input[type="checkbox"]){
+  @apply border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+}
+
+#SMP_STYLE .zipcode li.code01 {
+  @apply w-2/5
+}
+
+#SMP_STYLE .zipcode li.code01 input {
+  @apply w-4/5 mr-1
+}
+
+#SMP_STYLE .zipcode li.code02 {
+  @apply w-3/5
+}
+#SMP_STYLE .zipcode li.code02 input {
+  @apply w-4/5
+}
+
+#SMP_STYLE .phone li.num01,
+#SMP_STYLE .phone li.num02,
+#SMP_STYLE .phone li.num03  {
+  @apply w-1/3
+}
+
+#SMP_STYLE .phone li.num01 input,
+#SMP_STYLE .phone li.num02 input,
+#SMP_STYLE .phone li.num03 input
+ {
+  @apply w-4/5
+}
+
+#SMP_STYLE .price input {
+	width: 200px;
+}
+
+#SMP_STYLE .num input,
+#SMP_STYLE .integer input,
+#SMP_STYLE .real input,
+#SMP_STYLE .pass input,
+#SMP_STYLE .epass inpu {
+	@apply w-32
+}
+
+#SMP_STYLE ul,#smp_style li {
+  @apply flex gap-4;
+}
+
+#SMP_STYLE .zipcode ul li,
+#SMP_STYLE .phone ul li,
+#SMP_STYLE .time ul li{
+  @apply flex items-center gap-4 whitespace-nowrap;
+}
+
+#SMP_STYLE .time ul {
+	@apply grid gap-x-8 gap-y-4 lg:grid-cols-6 grid-cols-3
+}
+
+#SMP_STYLE .multi1 label {
+}
+
+#SMP_STYLE .multi1 label input {
+}
+
+#SMP_STYLE .multi1 label span {
+}
+
+#SMP_STYLE .multi2 ul.cf{
+	@apply grid gap-x-8 gap-y-4 grid-cols-3
+}
+
+#SMP_STYLE .multi2 li {
+
+}
+
+#SMP_STYLE .multi2 label input {
+}
+
+#SMP_STYLE .multi2 label span {
+}
+
+#SMP_STYLE .radio input[type="radio"] {
+	@apply mr-4 w-4 h-4 text-blue-600  border-gray-300 focus:ring-blue-500  focus:ring-2
+}
+
+#SMP_STYLE input[type="checkbox"],
+table.smp-table input[type="checkbox"],
+.smp-search-form input[type="checkbox"]{
+	@apply mr-4 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 
+}
+
+
+#SMP_STYLE .multi2 .radio {
+	@apply grid gap-x-8 gap-y-4 grid-cols-3
+}
+
+#SMP_STYLE select {
+	@apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+}
+
+#SMP_STYLE textarea {
+	@apply block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+}
+
+#SMP_STYLE .image input[type="file"] {
+}
+
+#SMP_STYLE .file input {
+}
+
+#SMP_STYLE input.clear {
+  @apply block text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-center text-sm px-5 py-2.5 focus:outline-none
+}
+
+#SMP_STYLE input.submit {
+  @apply w-full block my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-center text-sm px-5 py-2.5 mx-auto focus:outline-none
+}
+
+#SMP_STYLE input.submit:hover {
+}
+
+#SMP_STYLE input.image {
+}
+
+#SMP_STYLE input.searchZipcode {
+}
+
+#SMP_STYLE input.searchZipcode:hover {
+}
+
+#SMP_STYLE input.imageZipcode {
+}
+
+#SMP_STYLE input[name=SMPFORM_BACK] {
+  @apply w-full block my-4 py-2.5 px-5 mx-auto text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200
+}
+
+#SMP_STYLE input.submit:hover {
+}
+
+#SMP_STYLE dd.image {
+  @apply inline-grid gap-2 grid-cols-3 !important
+}
+#SMP_STYLE dd.image msg {
+  @apply col-span-3
+}
+
+#SMP_STYLE .sample {
+  @apply text-slate-800 block
+}
+
+#SMP_STYLE .suffix {
+	color: #111111;
+	font-size: 100%;
+	font-weight:normal;
+	text-align:left;
+	height: 35px;
+	line-height: 35px;
+}
+
+#SMP_STYLE .need {
+  @apply text-red-600;
+}
+
+#SMP_STYLE .msg {
+  @apply text-red-600 block
+}
+
+#SMP_STYLE .sub_text {
+}
+
+#SMP_STYLE .error {
+  @apply text-red-600 bg-red-50 !important;
+}
+
+#SMP_STYLE .spiralSeal {
+}
+
+#SMP_STYLE .spiralSeal tr td.description {
+}
+
+#SMP_STYLE .spiralSeal tr td.img {
+}
+
+#SMP_STYLE .footer_text {
+}
+
+table.smp-table {
+  @apply w-full text-left text-gray-500 text-base !important;
+}
+
+table.smp-table select {
+  @apply max-w-[20rem] min-w-[6rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 inline-block w-full p-2.5
+}
+
+table.smp-table input[name="smp-table-submit-button"],
+table.smp-table input.smp-table-button,
+.smp-search-form input[type="submit"]{
+  @apply w-32 py-3 inline-block text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200
+}
+
+table.smp-table #smp-table-delete-button {
+  @apply text-red-900 focus:outline-none bg-red-400 rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-red-200
+}
+
+table.smp-table tr.smp-row-sort{
+  @apply text-base text-gray-700 uppercase bg-gray-50 
+}
+
+table.smp-table tr.smp-row-sort a{
+  @apply text-blue-600 hover:underline
+}
+
+table.smp-table tr.smp-row-sort td {
+  @apply py-4 px-2
+}
+
+table.smp-table tr.smp-row-normal td{
+  @apply py-2
+}
+
+table.smp-table tr.smp-row-data{
+  @apply text-xs text-slate-900  uppercase bg-white
+}
+table.smp-table tr.smp-row-data td{
+  @apply py-2 border-b border-slate-700/30
+}
+
+
+table.smp-table tr.smp-be-operate {
+  @apply bg-slate-400/30
+}
+
+table.smp-table .smp-cell-data {
+  @apply px-4 text-base !important;
+}
+
+table.smp-table .smp-cell-data a {
+  @apply text-slate-600 underline hover:text-slate-200;
+}
+
+table.smp-table .smp-cell-data input:not(input[type="radio"]):not(input[type="checkbox"]){
+  @apply border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 !important
+}
+
+
+.smp-search-form .smp-search-form-table {
+  @apply w-full mx-auto
+}
+
+.smp-search-form td.smp-sf-head {
+  @apply md:w-1/3 w-full md:self-center text-base !important
+}
+.smp-search-form td.smp-sf-body {
+  @apply md:w-2/3 w-full !important
+}
+
+.smp-search-form td.smp-sf-body{
+  @apply py-4
+}
+
+.smp-search-form td.smp-sf-body span{
+  @apply mr-4
+}
+
+.smp-search-form .smp-sf-row {
+  @apply inline-flex w-full md:flex-row flex-col md:table-row
+}
+
+
+table.smp-table textarea {
+	@apply block p-2.5 w-full h-12 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 !important
+}
+
+a[target="_blank"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: .8rem;
+    content: "\f35d";
+    margin: 0 0 0 5px;
+}
