@@ -4,6 +4,7 @@ require_once (defined('BASE_PATH') ? BASE_PATH : "") . "framework/autoload_stati
 require_once "SpiralPress/autoload_static.php";
 
 use framework\Routing\Router;
+use SpiralPress\App\Http\Controllers\ProjectController;
 use SpiralPress\App\Http\Controllers\Web\WelcomeController;
 
 /** */
@@ -21,12 +22,17 @@ Router::map("GET", "/header-edit", function(){
     echo view("html.header-edit");
 });
 
+Router::resource('projects', ProjectController::class);
 
-//Router::map("GET", "/:userId", [HogeHogeController:: class , "show"]);
-//Router::map("POST", "/user", [HogeHogeController:: class , "create"]);
-//Router::map("PATCH", "/:userId", [HogeHogeController:: class , "update"]);
-//Router::map("DELETE", "/", [HogeHogeController:: class , "delete"]);
-
+Router::prefix("/:projectId",function(){
+    Router::resource('pages', PageController::class);
+    Router::resource('posts', PostController::class);
+    Router::resource('comments', CommentController::class);
+    Router::resource('categories', CategoryController::class);
+    Router::resource('menus', MenuController::class);
+    Router::resource('settings', SettingController::class);
+    Router::resource('media', MediaController::class);
+});
 
 $router = new Router();
 //$router->middleware();毎回必ずチェックする場合はこっち

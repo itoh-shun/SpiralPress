@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 <head>
     <title>{{ $title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x/dist/alpine.min.js" defer></script>
@@ -23,8 +23,8 @@
     <script src="https://cdn.jsdelivr.net/npm/editorjs-alert@latest" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@calumk/editorjs-columns@latest" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/editorjs-undo@latest" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/editorjs-button@latest" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         @include('css/output.css.php');
     </style>
