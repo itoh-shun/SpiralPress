@@ -1,11 +1,16 @@
 
 <?php
+require_once "GlobalConfig.php";
 require_once (defined('BASE_PATH') ? BASE_PATH : "") . "framework/autoload_static.php";
 require_once "SpiralPress/autoload_static.php";
 
 use framework\Routing\Router;
+use SpiralPress\App\Http\Controllers\CategoryController;
+use SpiralPress\App\Http\Controllers\MediaController;
+use SpiralPress\App\Http\Controllers\MenuController;
 use SpiralPress\App\Http\Controllers\ProjectController;
 use SpiralPress\App\Http\Controllers\Web\WelcomeController;
+use SpiralPress\App\Http\Middreware\ProjectMiddleware;
 
 /** */
 
@@ -24,16 +29,16 @@ Router::map("GET", "/header-edit", function(){
 
 Router::resource('projects', ProjectController::class);
 
-Router::prefix("/:projectId",function(){
-    Router::resource('pages', PageController::class);
-    Router::resource('posts', PostController::class);
-    Router::resource('comments', CommentController::class);
-    Router::resource('categories', CategoryController::class);
-    Router::resource('menus', MenuController::class);
-    Router::resource('settings', SettingController::class);
-    Router::resource('media', MediaController::class);
+Router::middlewares(ProjectMiddleware::class, function(){
+    Router::prefix(":projectId",function(){
+        Router::resource('pages', PageController::class);
+        Router::resource('comments', CommentController::class);
+        Router::resource('categories', CategoryController::class);
+        Router::resource('menu', MenuController::class);
+        Router::resource('settings', SettingController::class);
+        Router::resource('media', MediaController::class);
+    });
 });
-
 $router = new Router();
 //$router->middleware();毎回必ずチェックする場合はこっち
 $app = new SpiralPress\SpiralPressApplication();
