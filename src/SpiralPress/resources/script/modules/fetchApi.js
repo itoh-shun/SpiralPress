@@ -1,5 +1,4 @@
-function fetchApi(_url, params) {
-    params.append('_token', "{{ $this->csrf_token }}");
+export function fetchApi(_url, params) {
 
     return fetch(_url, {
         method: 'POST',

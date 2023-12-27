@@ -1,7 +1,7 @@
 @extends('template.dashboard-layout')
 
 @section('body')
-    <h1 class="text-3xl font-bold underline text-clifford">
+    <h1 class="text-3xl font-bold text-clifford">
         ダッシュボード
     </h1>
 <div x-data="menuHandler()" x-init="init">

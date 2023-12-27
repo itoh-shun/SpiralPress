@@ -2,7 +2,7 @@
 
 namespace SpiralPress\App\Http\Controllers ;
 
-use App\Models\Media;
+use App\Models\Post;
 use App\Models\Project;
 use BladeOneCsrf;
 use Csrf;
@@ -31,9 +31,12 @@ class MenuController extends Controller
         $httpRequest->setUrl($project->globalMenuJson);
         $json = $httpRequest->get($httpRequestParameter);
 
+        $pages = Post::allByProjectId($vars['projectId']);
+
         echo view('html.menu.index', [
             'projectId' => $vars['projectId'],
-            'globalMenuJson' => $json ?? [],
+            'pages' => $pages,
+            'globalMenuJson' => json_encode($json) ?? "[]" ,
         ]);
     }
 
@@ -43,11 +46,10 @@ class MenuController extends Controller
 
     public function store(array $vars)
     {
-        BladeOneCsrf::validate(true);
         Project::instance()->setFile(
             'globalMenuJson',
             'menu.json',
-            $this->request->get('items')
+            $this->request->getUrldecode('items')
         )->where('projectId', $vars['projectId'])->update(
             [
                 'projectId' => $vars['projectId'],

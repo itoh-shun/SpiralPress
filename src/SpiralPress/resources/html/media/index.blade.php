@@ -1,7 +1,7 @@
 @extends('template.dashboard-layout')
 
 @section('body')
-    <h1 class="text-3xl font-bold underline text-clifford">
+    <h1 class="text-3xl font-bold text-clifford">
         メディア管理
     </h1>
     <div class="my-4">

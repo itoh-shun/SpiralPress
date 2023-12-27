@@ -1,9 +1,9 @@
 @extends('template.dashboard-layout')
 
 @section('body')
-    <h1 class="text-3xl font-bold underline text-clifford">
-        グローバルメニュー管理
-    </h1>
+<h1 class="text-3xl font-bold text-clifford">
+    グローバルメニュー管理
+</h1>
 <div x-data="menuHandler()" x-init="init">
     <button class="btn w-full my-4" @click="createModal = true">メニュー項目の追加</button>
     <template x-if="createModal">
@@ -24,8 +24,13 @@
                     </div>
         
                     <div class="form-control">
-                        <label class="label" for="url">URL</label>
-                        <input type="text" id="url" class="input input-bordered" x-model="newItem.url" :disabled="newItem.isFolder">
+                        <label class="label" for="postShareId">ページ</label>
+                        <select x-model="newItem.postShareId" :disabled="newItem.isFolder" class="select select-bordered">
+                            <option > --- 選択してください --- </option>
+                            <template x-for="post in pages">
+                                <option :value="post.postShareId" x-text="post.title"></option>
+                            </template>
+                        </select>
                     </div>
         
                     <div class="modal-action">
@@ -47,8 +52,13 @@
                     </div>
         
                     <div class="form-control" x-show="!selectedItem.isFolder">
-                        <label class="label" for="editUrl">URL</label>
-                        <input type="text" id="editUrl" class="input input-bordered" x-model="selectedItem.url">
+                        <label class="label" for="editPostShareId">ページ</label>
+                        <select x-model="selectedItem.postShareId" :disabled="selectedItem.isFolder" class="select select-bordered">
+                            <option > --- 選択してください --- </option>
+                            <template x-for="post in pages">
+                                <option :value="post.postShareId" x-text="post.title" :selected="post.postShareId == selectedItem.postShareId"></option>
+                            </template>
+                        </select>
                     </div>
         
                     <div class="modal-action">
@@ -84,9 +94,9 @@ return {
     editModal: false,
     deleteModal: false,
     selectedItem: null,
-    newItem: { id: '' , name: '', isFolder: false, url: '' },
-    menuItems: @json($globalMenuJson),
-
+    newItem: { id: '' , name: '', isFolder: false, postShareId: '' },
+    menuItems: {!! $globalMenuJson !!},
+    pages: @json($pages),
     init() {
         this.$refs.menuList.innerHTML = '';
         this.$refs.menuList.innerHTML = this.renderMenu(this.menuItems);
@@ -109,18 +119,17 @@ return {
     },
     addItem() {
         if (!this.newItem.name) return;
-
         // 新しい項目をmenuItemsに追加
         this.menuItems.push({
             id: Date.now(), // 一意のIDを生成
             name: this.newItem.name,
-            url: this.newItem.url,
+            postShareId: this.newItem.postShareId,
             isFolder: this.newItem.isFolder,
             children: this.newItem.isFolder ? [] : null
         });
 
         // フォームをリセット
-        this.newItem = { name: '', isFolder: false, url: '' };
+        this.newItem = { name: '', isFolder: false, postShareId: '' };
         this.createModal = false;
         this.init();
     },
@@ -214,6 +223,7 @@ return {
         const params = new URLSearchParams();
         params.append('_method', 'post');
         params.append('items', encodeURIComponent(JSON.stringify(this.menuItems)));
+        params.append('_token', "{{ $this->csrf_token }}");
         fetchApi("{!! url('menu.store' , ['projectId' => $projectId]) !!}", params)
         .then(data => {
             let store = Alpine.store('success');

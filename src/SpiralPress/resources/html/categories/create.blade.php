@@ -1,7 +1,7 @@
 @extends('template.dashboard-layout')
 
 @section('body')
-<h1 class="text-3xl font-bold underline text-clifford">新しいカテゴリを追加</h1>
+<h1 class="text-3xl font-bold text-clifford">新しいカテゴリを追加</h1>
 @if($message)
 <div class="alert {{ ($isError) ? 'alert-error' : 'alert-success' }} my-4">
     @if($isError)
@@ -17,7 +17,7 @@
         value : '{{ $validate['categoryName']['value'] }}',
         isValid : '{{ $validate['categoryName']['isValid'] === false }}',
         message : '{{ $validate['categoryName']['message'] }}',
-    }
+    },
 }">
     <div class="flex flex-wrap my-6 gap-4">
         <div class="form-control w-full lg:flex-row flex-col">

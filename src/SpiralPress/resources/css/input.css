@@ -6,6 +6,67 @@
 
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
+@import "theme/default.css";
+
+.editorjs h1 {
+  @apply text-4xl;
+  @apply font-bold;
+}
+.editorjs h2 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+.editorjs h3 {
+  @apply text-2xl;
+  @apply font-bold;
+}
+.editorjs h4 {
+  @apply text-xl;
+  @apply font-semibold;
+}
+.editorjs h5 {
+  @apply text-lg;
+  @apply font-semibold;
+}
+.editorjs h6 {
+  @apply text-sm;
+  @apply font-semibold;
+}
+.editorjs a {
+  @apply text-primary underline;
+}
+.ce-block--focused div.ce-block__content {
+  @apply border border-solid border-primary
+}
+.tc-wrap{
+  @apply h-auto
+}
+
+.ce-block__content, .ce-toolbar__content {
+  max-width: 650px !important;
+}
+
+.ce-block--stretched .ce-block__content , .ce-block--stretched .ce-toolbar__content {
+  max-width: none !important;
+}
+
+.ce-block__content{
+  max-width: 50%;
+  margin: auto;
+}
+
+.ce-toolbar__plus, .ce-toolbar__settings-btn {
+  background: white;
+}
+
+.shortcode-tool {
+  @apply p-4 bg-base-100 text-base-content flex flex-col gap-4 border border-dotted border-base-content
+}
+
+.cdx-nested-list--unordered>.cdx-nested-list__item:before {
+  content: "・" !important;
+}
+
 .markdown  {
   @apply py-4
 }
@@ -123,6 +184,9 @@
   @apply flex items-center -space-x-px h-8 text-sm justify-center
 }
 
+.pagination.page-item::marker {
+  content: '';
+}
 .page-item.current .page-link , .smp-page.smp-current-page{
   @apply z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700
 }

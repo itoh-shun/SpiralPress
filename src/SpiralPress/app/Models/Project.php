@@ -8,7 +8,7 @@ class Project extends SpiralModel {
     protected string $primaryKey = 'projectId';
 
     protected array $fields = [
-        'createAt', 'updateAt' , 'authKey' , 'projectName' , 'projectId' , 'globalMenuJson'
+        'createAt', 'updateAt' , 'authKey' , 'projectName' , 'projectId' , 'globalMenuJson', 'topPage' , 'theme'
     ];
 
     protected string $db_title = 'sp_project';

@@ -1,0 +1,180 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+
+#default-siteview div.block h1 {
+  @apply text-4xl;
+  @apply font-bold;
+}
+#default-siteview div.block h2 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+#default-siteview div.block h3 {
+  @apply text-2xl;
+  @apply font-bold;
+}
+#default-siteview div.block h4 {
+  @apply text-xl;
+  @apply font-semibold;
+}
+#default-siteview div.block h5 {
+  @apply text-lg;
+  @apply font-semibold;
+}
+#default-siteview div.block h6 {
+  @apply text-sm;
+  @apply font-semibold;
+}
+#default-siteview div.block a:not([class])  {
+  @apply text-primary underline;
+}
+
+#default-siteview div.block {
+  @apply container max-w-3xl mx-auto my-4;
+}
+
+#default-siteview div.block.with-stretched {
+  @apply mx-auto my-4 w-full max-w-none;
+}
+
+#default-siteview div.block.with-stretched > * {
+    @apply w-full
+}
+
+#default-siteview div.block.with-background {
+    @apply bg-base-200 p-4 text-center
+}
+#default-siteview div.block.with-background > * {
+    @apply mx-auto
+}
+#default-siteview div.block.with-border {
+    @apply border
+}
+
+#default-siteview div.block .carousel-masonry {
+    @apply columns-2
+}
+#default-siteview div.block.with-stretched .carousel-masonry {
+    @apply columns-2 md:columns-3 lg:columns-4
+}
+#default-siteview div.block .carousel-masonry img {
+    @apply mb-4
+}
+#default-siteview div.block .carousel{
+    @apply w-full
+}
+#default-siteview div.block .carousel .carousel-item{
+    @apply relative w-full mx-auto
+}
+#default-siteview div.block .carousel .carousel-item img{
+    @apply object-contain max-h-96 mx-auto
+}
+
+#default-siteview .call-out .block {
+  @apply border border-warning py-2 px-4 shadow-sm my-3 rounded-md
+}
+
+#default-siteview .citation .block  {
+  @apply p-4 my-4 border-s-4 border-base-content bg-base-300
+}
+
+#default-siteview .citation .block p {
+  @apply italic font-medium leading-relaxed text-base-content
+}
+
+#default-siteview .details .block p {
+  @apply text-sm
+}
+
+#default-siteview .block .warning { 
+  @apply px-4 flex flex-col md:flex-row gap-4
+}
+#default-siteview .block .warning dt{
+  @apply font-bold
+}
+
+#default-siteview .block ul:not([class]) {
+  @apply list-disc;
+}
+
+#default-siteview ol:not([class]) li:not([class]):before {
+  content: counters(item, ".") " ";
+  counter-increment: item
+}
+
+#default-siteview .block ol:not([class]) {
+  counter-reset: item
+}
+
+#default-siteview ul:not([class]) > li:not([class]) , #default-siteview ol:not([class]) > li:not([class])  {
+  @apply ml-4
+}
+#default-siteview .block.quote{
+  @apply p-4 my-4 border-s-4 border-accent/50 bg-accent/10
+}
+
+#default-siteview .block.quote.left {
+  @apply text-left
+}
+
+#default-siteview .block.quote.center {
+  @apply text-center
+}
+
+#default-siteview .block.quote blockquote {
+  @apply text-2xl italic font-medium text-accent-content
+}
+
+#default-siteview .block.quote figcaption {
+  @apply mt-6 text-accent-content/90
+}
+
+#default-siteview .block .link-tool {
+  @apply p-4 bg-base-100 text-base-content border rounded-md shadow ;
+  display: block;
+  animation: link-in .45s 1 cubic-bezier(.215,.61,.355,1);
+}
+
+#default-siteview .block .link-tool .description {
+  @apply text-base-content/70 text-sm
+}
+
+#default-siteview .block .link-tool .image {
+  @apply rounded-md w-16 h-16 bg-no-repeat bg-center bg-cover ml-8 float-right
+}
+
+#default-siteview .block.checklist .label {
+  @apply gap-4 justify-start
+}
+#default-siteview .block.delimiter {
+  @apply leading-7 w-full text-center
+}
+#default-siteview .block.delimiter:before {
+  @apply inline-block text-3xl leading-[65px] h-8;
+  content: "***";
+}
+
+#default-siteview .block .checkbox:disabled {
+  @apply opacity-100
+}
+
+#default-siteview .block .mockup-code{
+  @apply w-full
+}
+
+#default-siteview .page-item.current .page-link{
+  @apply z-10 flex items-center justify-center px-3 h-8 leading-tight bg-base-100 text-base-content hover:text-primary
+}
+
+#default-siteview .page-item .page-link{
+  @apply flex items-center justify-center px-3 h-8 leading-tight bg-base-100 text-base-content
+}
+
+#default-siteview .page-item .page-text{
+  @apply flex items-center justify-center px-3 h-8 leading-tight bg-base-100 text-base-content
+}

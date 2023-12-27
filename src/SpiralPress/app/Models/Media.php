@@ -8,7 +8,7 @@ class Media extends SpiralModel {
     protected string $primaryKey = 'id';
 
     protected array $fields = [
-        'id', 'createAt', 'updateAt' , 'file' , 'projectId' , 'type'
+        'id', 'createAt', 'updateAt' , 'file' , 'fileName' , 'type'
     ];
 
     protected string $db_title = 'sp_media';

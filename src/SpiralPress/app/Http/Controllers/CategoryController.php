@@ -4,6 +4,7 @@ namespace SpiralPress\App\Http\Controllers ;
 
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Post;
 use BladeOneCsrf;
 use framework\Http\Controller;
 use framework\Http\Request;
@@ -52,20 +53,23 @@ class CategoryController extends Controller
         ],[
             'categoryName' => 'カテゴリ名',
         ]);
-
+        
         if($validatedData->isError()) {
             $this->request->session()->put('isError', true);
             $this->request->session()->put('message', 'エラーが発生しました');
             $this->request->session()->put('validate', $validatedData->getResults());
             redirect('categories.create',$vars);
         }
+        $id = uniqid();
         
         $category = new Category();
-        $category->categoryId = uniqid();
+        $category->categoryId = $id;
+        $category->categoryShareId =  $id;
         $category->categoryName = $this->request->categoryName;
         $category->projectId = $vars['projectId'];
         $category->save();
         
+        getCategories($category->projectId, true);
         redirect('categories.index',$vars);
     }
 
@@ -91,7 +95,6 @@ class CategoryController extends Controller
     {
         $category = Category::findByCategoryIdAndProjectId($vars['id'], $vars['projectId']);
 
-        var_dump($category);
         if(BladeOneCsrf::validate() !== true){
             $this->request->session()->put('isError', true);
             $this->request->session()->put('message' , 'CSRFトークンの有効期限が切れました。');
@@ -117,9 +120,37 @@ class CategoryController extends Controller
         $category->updateAt = 'now';
         $category->categoryName = $this->request->categoryName;
         $category->save();
-
         
+        getCategories($category->projectId, true);
         redirect('categories.index',$vars);
+    }
+
+    public function postsindex(array $vars){
+        $category = Category::findByCategoryIdAndProjectId($vars['categoryId'], $vars['projectId']);
+        
+        $categories = getCategories($vars['projectId']);
+        $posts = Post::allByProjectIdAndCategoryShareId($vars['projectId'],$category->categoryShareId);
+
+        $postView = [];
+        foreach($posts as $key => $p){
+            $p = collect((array)$p);
+            $p->categoryName = '';
+            $postView[] = $p;
+        }
+        foreach($postView as $key => $p){
+            foreach($categories as $c){
+                if($p->categoryShareId === $c->categoryShareId){
+                    $postView[$key]->categoryName = $c->categoryName;
+                    break;
+                }
+            }
+        }
+
+        echo view('html.posts.index', [
+            'posts' => $postView,
+            'categoryShareId' => $category->categoryShareId,
+            'projectId' => $vars['projectId'],
+        ]);
     }
 
     public function destroy(array $vars)

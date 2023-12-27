@@ -39,10 +39,10 @@
                                 <details {{ ($projectId === $project->projectId)? 'open' : '' }}>
                                     <summary>{{ $project->projectName }}</summary>
                                     <ul>
-                                        <li><a href="{{ url('media.index', ['projectId' => $project->projectId]) }}">メディア</a></li>
+                                        <!--<li><a href="{{ url('media.index', ['projectId' => $project->projectId]) }}">メディア</a></li>-->
                                         <li><a href="{{ url('categories.index', ['projectId' => $project->projectId]) }}">カテゴリ管理</a></li>
-                                        <li><a href="{{ url('pages.index', ['projectId' => $project->projectId]) }}">ページ</a></li>
-                                        <li><a href="{{ url('comments.index', ['projectId' => $project->projectId]) }}">コメント一覧</a></li>
+                                        <li><a href="{{ url('posts.index', ['projectId' => $project->projectId]) }}">ページ</a></li>
+                                        <!--<li><a href="{{ url('comments.index', ['projectId' => $project->projectId]) }}">コメント一覧</a></li>-->
                                         <li><a href="{{ url('menu.index', ['projectId' => $project->projectId]) }}">グローバルメニュー設定</a></li>
                                         <li><a href="{{ url('projects.edit', ['id' => $project->projectId]) }}">設定</a></li>
                                     </ul>
@@ -50,10 +50,10 @@
                             </li>
                             @endforeach
                         </ul>
-                        <a class="btn w-full btn-ghost mt-4" href="{{ url('projects.create') }}">
+                        <!--<a class="btn w-full btn-ghost mt-4" href="{{ url('projects.create') }}">
                             <span class="material-symbols-outlined">add</span>
                             新規プロジェクト作成
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

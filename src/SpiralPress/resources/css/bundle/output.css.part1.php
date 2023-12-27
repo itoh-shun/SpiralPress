@@ -1,0 +1,2 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");@tailwind base;@tailwind components;@tailwind utilities;
+
